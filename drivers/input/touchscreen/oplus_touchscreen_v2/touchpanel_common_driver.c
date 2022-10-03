@@ -466,6 +466,15 @@ static void tp_gesture_handle(struct touchpanel_data *ts)
 	}
 	tp_geture_info_transform(&gesture_info_temp, &ts->resolution_info);
 
+	if (ts->panel_data.manufacture_info.manufacture
+		&& !strncmp(ts->panel_data.manufacture_info.manufacture, "SEC_", 4)) {
+		if (gesture_info_temp.gesture_type == SINGLE_TAP) {
+			if (sec_double_tap(&gesture_info_temp) == 1) {
+				gesture_info_temp.gesture_type = DOU_TAP;
+			}
+		}
+	}
+
 	TP_INFO(ts->tp_index, "detect %s gesture\n",
 		gesture_info_temp.gesture_type == DOU_TAP ? "double tap" :
 		gesture_info_temp.gesture_type == UP_VEE ? "up vee" :
