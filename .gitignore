@@ -145,3 +145,13 @@ x509.genkey
 
 # Clang's compilation database file
 /compile_commands.json
+
+
+# Ignore stuff
+AnyKernel3/
+changelog/
+dtb*
+environment/
+error.*
+toolchains/
+arch/arm64/configs/ElectraX_defconfig
