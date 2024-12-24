@@ -536,7 +536,7 @@ static int project_read_func(struct seq_file *s, void *v)
 {
     void *p = s->private;
 
-    switch(Ptr2UINT32(p)) {
+    switch((size_t)(p)) {
     case PROJECT_VERSION:
         if (get_project() > 0x20000) {
             seq_printf(s, "%X", get_project());
