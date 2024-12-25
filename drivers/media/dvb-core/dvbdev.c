@@ -474,7 +474,7 @@ int dvb_register_device(struct dvb_adapter *adap, struct dvb_device **pdvbdev,
 	struct dvbdevfops_node *node = NULL, *new_node = NULL;
 	struct device *clsdev;
 	int minor;
-	int id, ret;
+	int id, ret = 0;
 
 	mutex_lock(&dvbdev_register_lock);
 
