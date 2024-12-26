@@ -17,7 +17,7 @@ struct rq_data rq_info;
 struct workqueue_struct *rq_wq;
 spinlock_t rq_lock;
 
-static void def_work_fn(struct work_struct *work)
+static void __attribute__((unused)) def_work_fn(struct work_struct *work)
 {
 	/* Notify polling threads on change of value */
 	sysfs_notify(rq_info.kobj, NULL, "def_timer_ms");
